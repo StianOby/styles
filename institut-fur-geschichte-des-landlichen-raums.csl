@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="de-DE" names-delimiter="/" demote-non-dropping-particle="sort-only">
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" names-delimiter="/" demote-non-dropping-particle="sort-only" default-locale="de-DE">
   <info>
     <title>Institut für Geschichte des ländlichen Raums (Deutsch)</title>
     <title-short>IGLR</title-short>
@@ -18,53 +18,67 @@
     <updated>2025-10-15T14:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
-  <locale xml:lang="de"><terms><term name="et-al">u.a.</term><term name="editor" form="short"><single>Hg</single><multiple>Hg</multiple></term></terms></locale><macro name="edition">
-  <group delimiter=" ">
-    <choose>
-      <if is-numeric="edition">
-        <number variable="edition" form="ordinal"/>
-        <label variable="edition" form="short"/>
-      </if>
-      <else>
-        <text variable="edition"/>
-      </else>
-    </choose>
-  </group>
-</macro><!-- Namen in Fußnoten: Vorname Nachname mit "/" -->
+  <locale xml:lang="de">
+    <terms>
+      <term name="et-al">u.a.</term>
+      <term name="editor" form="short">
+        <single>Hg</single>
+        <multiple>Hg</multiple>
+      </term>
+    </terms>
+  </locale>
+  <macro name="edition">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="edition">
+          <number variable="edition" form="ordinal"/>
+          <label variable="edition" form="short"/>
+        </if>
+        <else>
+          <text variable="edition"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+  <!-- Namen in Fußnoten: Vorname Nachname mit "/" -->
   <!-- Namen in Bibliographie: Nachname, Vorname mit "/" -->
   <!-- Autor ODER Editor(Hg.) &#8211; je nach Besetzung -->
   <macro name="author">
-      <names variable="author" delimiter="/">
-        <name delimiter="/" delimiter-precedes-last="always"/>
-        <substitute>
-          <names variable="editor" delimiter="/">
-            <name delimiter="/" delimiter-precedes-last="always"/>
-            <label form="short" prefix=" (" suffix=".)"/>
-          </names>
-        </substitute>
-      </names>
-    </macro><!-- Herausgeber mit (Hg.) &#8211; z.B. bei Sammelbänden als Container -->
+    <names variable="author" delimiter="/">
+      <name delimiter="/" delimiter-precedes-last="always"/>
+      <substitute>
+        <names variable="editor" delimiter="/">
+          <name delimiter="/" delimiter-precedes-last="always"/>
+          <label form="short" prefix=" (" suffix=".)"/>
+        </names>
+      </substitute>
+    </names>
+  </macro>
+  <!-- Herausgeber mit (Hg.) &#8211; z.B. bei Sammelbänden als Container -->
   <macro name="editor-with-label">
-      <names variable="editor" delimiter="/">
-        <name delimiter="/" delimiter-precedes-last="always"/>
-        <label form="short" prefix=" (" suffix=".)"/>
-      </names>
-    </macro><!-- Bibliographie: Autor ODER Editor(Hg.) &#8211; je nach Besetzung -->
+    <names variable="editor" delimiter="/">
+      <name delimiter="/" delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=".)"/>
+    </names>
+  </macro>
+  <!-- Bibliographie: Autor ODER Editor(Hg.) &#8211; je nach Besetzung -->
   <macro name="biblio-author-or-editor">
-      <names variable="author" delimiter="/">
-        <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
-        <substitute>
-          <names variable="editor" delimiter="/">
-            <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
-            <label form="short" prefix=" (" suffix=".)"/>
-          </names>
-        </substitute>
-      </names>
-    </macro><macro name="biblio-author-names">
-      <names variable="author" delimiter="/">
-        <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
-      </names>
-    </macro><macro name="year">
+    <names variable="author" delimiter="/">
+      <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
+      <substitute>
+        <names variable="editor" delimiter="/">
+          <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
+          <label form="short" prefix=" (" suffix=".)"/>
+        </names>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="biblio-author-names">
+    <names variable="author" delimiter="/">
+      <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+  <macro name="year">
     <choose>
       <if variable="issued">
         <date variable="issued">
@@ -102,13 +116,25 @@
       <if variable="author">
         <group delimiter=", ">
           <names variable="author" delimiter="/">
-              <name form="short" delimiter="/" delimiter-precedes-last="always"/>
-            </names><text variable="title" form="short"/><text macro="locators-smart"/>
+            <name form="short" delimiter="/" delimiter-precedes-last="always"/>
+          </names>
+          <text variable="title" form="short"/>
+          <text macro="locators-smart"/>
         </group>
       </if>
       <else>
         <group delimiter=", ">
-          <group delimiter=" "><names variable="editor" delimiter="/"><name form="short" delimiter="/" delimiter-precedes-last="always"/></names><group prefix="(" suffix=".)"><text term="editor" form="short"/></group></group><text variable="title" form="short"/><text macro="locators-smart"/></group>
+          <group delimiter=" ">
+            <names variable="editor" delimiter="/">
+              <name form="short" delimiter="/" delimiter-precedes-last="always"/>
+            </names>
+            <group prefix="(" suffix=".)">
+              <text term="editor" form="short"/>
+            </group>
+          </group>
+          <text variable="title" form="short"/>
+          <text macro="locators-smart"/>
+        </group>
       </else>
     </choose>
   </macro>
@@ -253,7 +279,11 @@
   </citation>
   <bibliography et-al-min="4" et-al-use-first="1" hanging-indent="true" line-spacing="2">
     <sort>
-      <key variable="author"/><key variable="editor"/><key variable="issued"/><key variable="title"/></sort>
+      <key variable="author"/>
+      <key variable="editor"/>
+      <key variable="issued"/>
+      <key variable="title"/>
+    </sort>
     <layout suffix=".">
       <choose>
         <!-- Buch -->
@@ -277,8 +307,9 @@
               <group delimiter=", ">
                 <group delimiter=" ">
                   <names variable="editor" delimiter="/">
-      <name name-as-sort-order="all" sort-separator=", "/>
-    </names><group prefix="(" suffix=".)">
+                    <name name-as-sort-order="all" sort-separator=", "/>
+                  </names>
+                  <group prefix="(" suffix=".)">
                     <text term="editor" form="short"/>
                   </group>
                 </group>
@@ -288,7 +319,8 @@
                   <text variable="volume"/>
                 </group>
                 <text macro="publisher-place-year"/>
-              <text variable="page"/></group>
+                <text variable="page"/>
+              </group>
             </group>
           </group>
         </else-if>
