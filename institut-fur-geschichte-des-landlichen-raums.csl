@@ -73,11 +73,6 @@
       </substitute>
     </names>
   </macro>
-  <macro name="biblio-author-names">
-    <names variable="author" delimiter="/">
-      <name name-as-sort-order="all" sort-separator=", " delimiter="/" delimiter-precedes-last="always"/>
-    </names>
-  </macro>
   <macro name="year">
     <choose>
       <if variable="issued">
