@@ -18,6 +18,14 @@
     <updated>2026-03-09T09:42:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
+  <!--locales-->
+  <locale xml:lang="hu">
+    <terms>
+      <term name="manuscript" form="long">kézirat</term>
+      <term name="no-publisher" form="short">k. n.</term>
+      <term name="no-place" form="short">h. n.</term>
+    </terms>
+  </locale>
   <!--Citation-->
   <macro name="author-short">
     <choose>
@@ -196,7 +204,7 @@
     <group>
       <choose>
         <if match="none" variable="publisher">
-          <text value="k. n."/>
+          <text term="no-publisher" form="short"/>
         </if>
         <else-if match="any" variable="publisher">
           <text variable="publisher"/>
@@ -214,7 +222,7 @@
     <group>
       <choose>
         <if match="none" variable="publisher-place">
-          <text value="h. n."/>
+          <text term="no-place" form="short"/>
         </if>
         <else-if match="any" variable="publisher-place">
           <text variable="publisher-place"/>
@@ -375,14 +383,14 @@
               <text macro="title-manuscript-thesis"/>
               <choose>
                 <if variable="genre" match="any">
-                  <text variable="genre"/>
+                  <text variable="genre" text-case="capitalize-first"/>
                   <text macro="publisher" prefix=" (" suffix=")"/>
                 </if>
               </choose>
             </group>
             <choose>
               <if type="manuscript" match="any">
-                <text value="Kézirat" suffix="."/>
+                <text term="manuscript" form="long" suffix="." text-case="capitalize-first"/>
               </if>
             </choose>
             <group delimiter=", ">
