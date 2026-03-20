@@ -24,20 +24,20 @@
       <if match="any" variable="author editor editor-translator collection-editor">
         <group delimiter=" ">
           <group>
-            <names variable="author" font-variant="normal" delimiter="–">
-              <name form="short" delimiter="–" delimiter-precedes-et-al="never" delimiter-precedes-last="never" sort-separator="">
+            <names variable="author" font-variant="normal" delimiter="&#8211;">
+              <name form="short" delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never" sort-separator="">
                 <name-part name="family" font-variant="small-caps"/>
               </name>
               <et-al font-variant="normal"/>
               <substitute>
-                <names variable="editor" delimiter="–">
-                  <name form="short" delimiter="–" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" sort-separator="">
+                <names variable="editor" delimiter="&#8211;">
+                  <name form="short" delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" sort-separator="">
                     <name-part name="family" font-variant="small-caps"/>
                   </name>
                   <et-al font-variant="normal"/>
                   <substitute>
-                    <names variable="collection-editor" delimiter="–">
-                      <name form="short" delimiter="–" delimiter-precedes-et-al="never" delimiter-precedes-last="never">
+                    <names variable="collection-editor" delimiter="&#8211;">
+                      <name form="short" delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never">
                         <name-part name="family" font-variant="small-caps"/>
                       </name>
                       <et-al font-variant="normal"/>
@@ -119,7 +119,7 @@
   <macro name="author-long">
     <group>
       <names variable="author" font-variant="normal">
-        <name delimiter=" – " delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize-with=". ">
+        <name delimiter=" &#8211; " delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize-with=". ">
           <name-part name="family" font-variant="small-caps"/>
           <name-part name="given"/>
         </name>
@@ -129,26 +129,26 @@
   <macro name="editor-as-author">
     <group delimiter=" ">
       <names variable="editor">
-        <name delimiter=" – " initialize-with=". ">
+        <name delimiter=" &#8211; " initialize-with=". ">
           <name-part name="family" font-variant="small-caps"/>
-        <name-part name="given" font-weight="normal" text-decoration="none" vertical-align="baseline"/>
-      </name>
-      <substitute>
-        <names variable="collection-editor">
-          <substitute>
-            <names variable="editor-translator"/>
-          </substitute>
-        </names>
-      </substitute>
-    </names>
-    <text term="editor" form="short" prefix="(" suffix=")"/>
+          <name-part name="given" font-weight="normal" text-decoration="none" vertical-align="baseline"/>
+        </name>
+        <substitute>
+          <names variable="collection-editor">
+            <substitute>
+              <names variable="editor-translator"/>
+            </substitute>
+          </names>
+        </substitute>
+      </names>
+      <text term="editor" form="short" prefix="(" suffix=")"/>
     </group>
   </macro>
-<!--Bibliography-article/chapter-authors-->
+  <!--Bibliography-article/chapter-authors-->
   <macro name="author-article-chapter">
     <group suffix=":">
       <names variable="author">
-        <name font-variant="normal" delimiter=" – " initialize-with=". ">
+        <name font-variant="normal" delimiter=" &#8211; " initialize-with=". ">
           <name-part name="family" font-variant="small-caps"/>
         </name>
       </names>
@@ -158,13 +158,13 @@
     <group delimiter=" " suffix=":">
       <text term="in" text-case="capitalize-first" suffix=":"/>
       <names variable="editor">
-        <name delimiter=" – " initialize-with=". " name-as-sort-order="all"/>
+        <name delimiter=" &#8211; " initialize-with=". " name-as-sort-order="all"/>
         <substitute>
           <names variable="collection-editor">
-            <name delimiter=" – "/>
+            <name delimiter=" &#8211; "/>
             <substitute>
               <names variable="author">
-                <name delimiter=" – "/>
+                <name delimiter=" &#8211; "/>
               </names>
             </substitute>
           </names>
@@ -175,13 +175,13 @@
   </macro>
   <!--Bibliography-print-title-->
   <macro name="title-book">
-        <group delimiter=" ">
-          <text variable="title" font-style="italic" suffix="."/>
-          <group delimiter=" ">
-            <text macro="edition"/>
-            <text macro="volume"/>
-          </group>
-        </group>
+    <group delimiter=" ">
+      <text variable="title" font-style="italic" suffix="."/>
+      <group delimiter=" ">
+        <text macro="edition"/>
+        <text macro="volume"/>
+      </group>
+    </group>
   </macro>
   <macro name="title-chapter">
     <group delimiter=" ">
@@ -256,8 +256,8 @@
   <macro name="author-webpage">
     <group font-variant="normal" delimiter=" ">
       <group suffix=":">
-        <names variable="author" font-variant="normal" delimiter=" – ">
-          <name delimiter=" – " delimiter-precedes-et-al="never" delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" ">
+        <names variable="author" font-variant="normal" delimiter=" &#8211; ">
+          <name delimiter=" &#8211; " delimiter-precedes-et-al="never" delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" ">
             <name-part name="family" font-variant="small-caps"/>
           </name>
         </names>
@@ -280,7 +280,7 @@
       <date form="text" variable="accessed"/>
     </group>
   </macro>
-  <citation name-delimiter="–" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize="false" near-note-distance="0" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name" collapse="year">
+  <citation name-delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize="false" near-note-distance="0" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name" collapse="year">
     <layout delimiter="; ">
       <choose>
         <if match="any" position="ibid-with-locator">
