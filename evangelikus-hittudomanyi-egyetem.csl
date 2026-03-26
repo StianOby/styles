@@ -80,34 +80,17 @@
     </choose>
   </macro>
   <macro name="locator">
-    <choose>
-      <if match="any" locator="page">
-        <group delimiter=" ">
+    <group delimiter=" ">
+      <choose>
+        <if match="any" locator="section">
+          <text variable="locator" text-case="capitalize-first" strip-periods="false" suffix="."/>
+        </if>
+        <else>
           <text variable="locator" text-case="lowercase" strip-periods="false" suffix="."/>
-          <label variable="page" form="short" text-case="lowercase" suffix="."/>
-        </group>
-      </if>
-      <else-if match="any" locator="chapter">
-        <group delimiter=" ">
-          <text variable="locator" text-case="lowercase" suffix="."/>
-          <text term="chapter" form="short" text-case="lowercase" suffix="."/>
-        </group>
-      </else-if>
-      <else-if match="any" locator="part">
-        <group>
-          <text variable="locator" text-case="lowercase"/>
-          <text term="part" text-case="lowercase"/>
-        </group>
-      </else-if>
-      <else-if match="any" locator="section">
-        <group>
-          <text variable="locator" text-case="capitalize-first" text-decoration="none"/>
-        </group>
-      </else-if>
-      <else>
-        <text variable="locator" text-case="lowercase"/>
-      </else>
-    </choose>
+        </else>
+      </choose>
+      <label variable="locator" form="short" text-case="lowercase" suffix="."/>
+    </group>
   </macro>
   <!--Bibliography-book-authors-->
   <macro name="author-book">
@@ -137,7 +120,7 @@
       <names variable="editor">
         <name delimiter=" &#8211; " initialize-with=". ">
           <name-part name="family" font-variant="small-caps"/>
-          <name-part name="given" font-weight="normal" text-decoration="none" vertical-align="baseline"/>
+          <name-part name="given" font-weight="normal"/>
         </name>
         <substitute>
           <names variable="collection-editor">
