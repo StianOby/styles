@@ -286,7 +286,7 @@
                   </group>
                   <text variable="container-title"/>
                   <group delimiter=" ">
-                    <text term="volume" form="short"/>
+                    <label variable="volume" form="short"/>
                     <text variable="volume"/>
                   </group>
                   <text macro="publisher-place-year"/>
