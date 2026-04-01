@@ -4705,7 +4705,7 @@
           <!-- print `container-title` on `post` or `webpage` in the same way as `publisher` (CMOS18 14.104-106) -->
           <text text-case="title" variable="container-title"/>
           <!-- avoid possible repetition of `container-title` with author-date: -->
-          <!-- <choose><if type="webpage" variable="container-title container-title-short"/><else><text text-case="title" variable="container-title"/></else></choose>-->
+          <!-- <choose><if variable="publisher"><text text-case="title" variable="container-title"/></if><else-if type="webpage" variable="container-title container-title-short"/><else><text text-case="title" variable="container-title"/></else></choose>-->
         </if>
       </choose>
       <choose>
