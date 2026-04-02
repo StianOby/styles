@@ -71,7 +71,6 @@
         <names variable="editor collection-editor translator"/>
       </substitute>
     </names>
-    <group/>
   </macro>
   <macro name="editor-chapter">
     <names variable="editor">
