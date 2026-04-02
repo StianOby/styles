@@ -30,21 +30,21 @@
       <if match="any" variable="author editor editor-translator collection-editor">
         <group delimiter=" ">
           <group>
-            <names variable="author" delimiter="&#8211;">
+            <names variable="author">
               <name form="short" delimiter-precedes-et-al="never" delimiter-precedes-last="never" sort-separator="">
                 <name-part name="family" font-variant="small-caps"/>
               </name>
               <et-al/>
               <substitute>
-                <names variable="editor" delimiter="&#8211;">
-                  <name form="short" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" sort-separator="">
-                    <name-part name="family" font-variant="small-caps"/>
+                <names variable="editor">
+                  <name form="short">
+                    <name-part name="family"/>
                   </name>
                   <et-al/>
                   <substitute>
-                    <names variable="collection-editor" delimiter="&#8211;">
-                      <name form="short" delimiter-precedes-et-al="never" delimiter-precedes-last="never">
-                        <name-part name="family" font-variant="small-caps"/>
+                    <names variable="collection-editor">
+                      <name form="short">
+                        <name-part name="family"/>
                       </name>
                       <et-al/>
                     </names>
@@ -55,8 +55,17 @@
           </group>
         </group>
       </if>
+      <else-if type="webpage" match="any">
+        <group delimiter=" ">
+          <text macro="author-webpage"/>
+          <text variable="title" suffix="."/>
+          <text variable="container-title" font-style="italic" suffix="."/>
+          <text variable="URL" suffix="."/>
+          <text macro="access-webpage"/>
+        </group>
+      </else-if>
       <else>
-        <group delimiter=" " suffix=".">
+        <group delimiter=" ">
           <text term="anonymous"/>
           <text variable="title"/>
           <group delimiter=", ">
@@ -158,7 +167,9 @@
   <!--Bibliography-print-title-->
   <macro name="title-book">
     <group delimiter=" ">
-      <text variable="title" font-style="italic" suffix="."/>
+      <group suffix=".">
+        <text variable="title" font-style="italic"/>
+      </group>
       <text macro="edition"/>
       <text macro="volume"/>
     </group>
@@ -237,16 +248,16 @@
     </group>
   </macro>
   <macro name="access-webpage">
-    <group delimiter=" ">
-      <text term="accessed" suffix=":"/>
+    <group delimiter=": ">
+      <text term="accessed" text-case="capitalize-first"/>
       <date form="text" variable="accessed"/>
     </group>
   </macro>
   <citation name-delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize="false" near-note-distance="0" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name" collapse="year">
-    <layout delimiter="; ">
+    <layout delimiter="; " suffix=".">
       <choose>
         <if match="any" position="ibid-with-locator">
-          <group delimiter=" " suffix=".">
+          <group delimiter=" ">
             <text term="ibid"/>
             <text macro="locator" text-case="lowercase"/>
           </group>
@@ -256,17 +267,8 @@
             <text term="ibid"/>
           </group>
         </else-if>
-        <else-if type="webpage" match="any">
-          <group delimiter=" ">
-            <text macro="author-webpage"/>
-            <text variable="title" suffix="."/>
-            <text variable="container-title" font-style="italic" suffix="."/>
-            <text variable="URL" suffix="."/>
-            <text macro="access-webpage"/>
-          </group>
-        </else-if>
         <else>
-          <group delimiter=" " suffix=".">
+          <group delimiter=" ">
             <text macro="author-short"/>
             <group delimiter=", ">
               <text macro="year" strip-periods="false"/>
@@ -351,7 +353,7 @@
           <group delimiter=" ">
             <group delimiter=" ">
               <text macro="author-book"/>
-              <text macro="title-book"/>
+              <text macro="title-book" suffix="."/>
             </group>
             <group delimiter=", ">
               <text macro="publisher"/>
