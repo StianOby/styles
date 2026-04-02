@@ -61,8 +61,8 @@
     </group>
   </macro>
   <macro name="author-long">
-    <names variable="author" delimiter=" – ">
-      <name delimiter=" – " delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" sort-separator=" ">
+    <names variable="author" delimiter=" &#8211; ">
+      <name delimiter=" &#8211; " delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" sort-separator=" ">
         <name-part name="family" font-variant="small-caps"/>
         <name-part name="given"/>
       </name>
@@ -74,7 +74,7 @@
   </macro>
   <macro name="editor-chapter">
     <names variable="editor">
-      <name delimiter=" – " name-as-sort-order="all"/>
+      <name delimiter=" &#8211; " name-as-sort-order="all"/>
       <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
@@ -137,7 +137,6 @@
       <label variable="page" form="short"/>
     </group>
   </macro>
-
   <macro name="access-webpage">
     <group delimiter=": ">
       <text term="accessed" text-case="capitalize-first"/>
@@ -154,7 +153,7 @@
       </else>
     </choose>
   </macro>
-  <citation name-delimiter="–" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize="false" near-note-distance="0" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name" collapse="year">
+  <citation name-delimiter="&#8211;" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" initialize="false" near-note-distance="0" disambiguate-add-year-suffix="true" givenname-disambiguation-rule="primary-name" collapse="year">
     <layout delimiter="; " suffix=".">
       <choose>
         <if match="any" position="ibid-with-locator">
