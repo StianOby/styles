@@ -73,36 +73,11 @@
     </names>
     <group/>
   </macro>
-  <macro name="editor-as-author">
-    <group delimiter=" ">
-      <names variable="editor">
-        <name delimiter=" – " initialize-with=". ">
-          <name-part name="family" font-variant="small-caps"/>
-          <name-part name="given" font-weight="normal"/>
-        </name>
-        <substitute>
-          <names variable="collection-editor">
-            <name delimiter=" – "/>
-          </names>
-        </substitute>
-      </names>
-      <text term="editor" form="short" prefix="(" suffix=")"/>
-    </group>
-  </macro>
   <macro name="editor-chapter">
     <names variable="editor">
       <name delimiter=" – " name-as-sort-order="all"/>
       <label form="short" prefix=" (" suffix=")"/>
     </names>
-  </macro>
-  <macro name="title-book">
-    <group delimiter=" ">
-      <group suffix=".">
-        <text variable="title" font-style="italic"/>
-      </group>
-      <text macro="edition"/>
-      <text macro="volume"/>
-    </group>
   </macro>
   <macro name="publisher">
     <group>
@@ -163,17 +138,7 @@
       <label variable="page" form="short"/>
     </group>
   </macro>
-  <macro name="author-webpage">
-    <group delimiter=" ">
-      <group suffix=":">
-        <names variable="author" delimiter=" – ">
-          <name delimiter=" – " delimiter-precedes-et-al="never" delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" ">
-            <name-part name="family" font-variant="small-caps"/>
-          </name>
-        </names>
-      </group>
-    </group>
-  </macro>
+
   <macro name="access-webpage">
     <group delimiter=": ">
       <text term="accessed" text-case="capitalize-first"/>
