@@ -18,9 +18,9 @@
     <updated>2026-04-02T15:55:09+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
-  <locale xml:lang="hu">
+  <locale xml:lang="hu-HU">
     <terms>
-      <term name="et-al" form="short">et al.</term>
+      <term name="et-al">et al.</term>
     </terms>
   </locale>
   <macro name="author-short">
@@ -66,7 +66,7 @@
         <name-part name="family" font-variant="small-caps"/>
         <name-part name="given"/>
       </name>
-      <label form="short" prefix=" (" suffix=")"/>
+      <label form="short" prefix=" (" suffix=")"/> 
       <substitute>
         <names variable="editor collection-editor translator"/>
       </substitute>
@@ -76,6 +76,9 @@
     <names variable="editor">
       <name delimiter=" &#8211; " name-as-sort-order="all"/>
       <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="collection-editor"/>
+      </substitute>
     </names>
   </macro>
   <macro name="publisher">
@@ -145,7 +148,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="book" match="any">
+      <if type="book manuscript thesis" match="any">
         <text variable="title" font-style="italic"/>
       </if>
       <else>
@@ -194,7 +197,7 @@
       <key variable="author"/>
       <key variable="title"/>
     </sort>
-    <layout suffix=".">
+    <layout>
       <group delimiter=". ">
         <group delimiter=": ">
           <text macro="author-long"/>
@@ -239,7 +242,7 @@
             </group>
           </else-if>
           <else-if type="thesis manuscript" match="any">
-            <group delimiter=". ">
+            <group delimiter=". " suffix=".">
               <group delimiter=" " suffix=".">
                 <choose>
                   <if variable="genre" match="any">
@@ -260,7 +263,9 @@
             </group>
           </else-if>
           <else>
-            <group delimiter=" ">
+            <group delimiter=". ">
+              <text macro="edition"/>
+              <text macro="volume"/>
               <group delimiter=", ">
                 <text macro="publisher"/>
                 <text macro="place"/>
