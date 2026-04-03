@@ -66,7 +66,7 @@
         <name-part name="family" font-variant="small-caps"/>
         <name-part name="given"/>
       </name>
-      <label form="short" prefix=" (" suffix=")"/> 
+      <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor collection-editor translator"/>
       </substitute>
