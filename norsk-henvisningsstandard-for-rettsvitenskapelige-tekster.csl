@@ -493,7 +493,7 @@
             </group>
           </if>
           <else-if locator="page">
-            <group delimiter=" ">
+            <group delimiter="&#160;">
               <label variable="locator" form="short"/>
               <text variable="locator"/>
             </group>
