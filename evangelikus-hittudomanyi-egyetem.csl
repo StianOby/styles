@@ -18,7 +18,7 @@
     <updated>2026-04-02T15:55:09+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
-  <locale xml:lang="hu-HU">
+  <locale xml:lang="hu">
     <terms>
       <term name="et-al">et al.</term>
     </terms>
@@ -269,7 +269,7 @@
               <group delimiter=", ">
                 <text macro="publisher"/>
                 <text macro="place"/>
-                <date date-parts="year" form="text" variable="issued" suffix="."/>
+                <date date-parts="year" form="text" variable="issued"/>
               </group>
               <text variable="collection-title" prefix="/" suffix="./"/>
             </group>
