@@ -194,7 +194,7 @@
   </citation>
   <bibliography delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="1" name-as-sort-order="all">
     <sort>
-      <key variable="author"/>
+      <key macro="author-long"/>
       <key variable="title"/>
     </sort>
     <layout>
