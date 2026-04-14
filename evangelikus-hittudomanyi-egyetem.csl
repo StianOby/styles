@@ -266,7 +266,7 @@
             <group delimiter=". ">
               <text macro="edition"/>
               <text macro="volume"/>
-              <group delimiter=", ">
+              <group delimiter=", " suffix=".">
                 <text macro="publisher"/>
                 <text macro="place"/>
                 <date date-parts="year" form="text" variable="issued"/>
