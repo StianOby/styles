@@ -272,7 +272,7 @@
                 <date date-parts="year" form="text" variable="issued"/>
               </group>
               <group delimiter=" " prefix="/" suffix="./">
-                <text variable="collection-title" />
+                <text variable="collection-title"/>
                 <text variable="collection-number"/>
               </group>
             </group>
