@@ -271,7 +271,10 @@
                 <text macro="place"/>
                 <date date-parts="year" form="text" variable="issued"/>
               </group>
-              <text variable="collection-title" prefix="/" suffix="./"/>
+              <group delimiter=" " prefix="/" suffix="./">
+                <text variable="collection-title" />
+                <text variable="collection-number"/>
+              </group>
             </group>
           </else>
         </choose>
