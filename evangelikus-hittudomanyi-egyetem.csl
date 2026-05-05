@@ -30,10 +30,23 @@
       </name>
       <et-al/>
       <substitute>
-        <names variable="editor collection-editor translator"/>
+        <text macro="substitute-short"/>
         <text term="anonymous"/>
       </substitute>
     </names>
+  </macro>
+  <macro name="substitute-short">
+    <group delimiter="&#8211;">
+      <names variable="editor">
+        <name form="short"/>
+      </names>
+      <names variable="collection-editor">
+        <name form="short"/>
+      </names>
+      <names variable="translator">
+        <name form="short"/>
+      </names>
+    </group>
   </macro>
   <macro name="year">
     <choose>
